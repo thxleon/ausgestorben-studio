@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connected – Ausgestorben Studio</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.png"></head><body><main>
+<h1>TikTok connection</h1><div id="out"><p>Waiting for TikTok…</p></div>
+<script>
+const q=new URLSearchParams(location.search),o=document.getElementById('out');
+if(q.get('code')){o.innerHTML='<p>Login successful. Copy this code back to your setup:</p><code id="c"></code><button id="b">Copy code</button>';
+document.getElementById('c').textContent=q.get('code');
+document.getElementById('b').onclick=()=>{navigator.clipboard.writeText(q.get('code'));document.getElementById('b').textContent='Copied'};}
+else if(q.get('error')){o.innerHTML='<p>TikTok returned an error:</p><code id="c"></code>';document.getElementById('c').textContent=q.get('error')+' – '+(q.get('error_description')||'');}
+</script>
+<nav><a href="index.html">Home</a></nav></main></body></html>
